@@ -7,6 +7,7 @@ public class Main {
     public static void main(String[] args) {
 
         Rectangle[] rectangles = {
+
                 new Rectangle(2, 3),
                 new Rectangle(3, 4),
                 new Rectangle(4, 5),
