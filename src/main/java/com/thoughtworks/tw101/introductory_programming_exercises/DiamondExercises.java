@@ -1,5 +1,24 @@
 package com.thoughtworks.tw101.introductory_programming_exercises;
 
+/***---------------------------Identified Smells-------------------------------***/
+/* Dispenser 1:
+ *  The helper methods getStringOfSpaces() and getStringOfStars() could use descriptive comments.
+ *  Refactored by renaming getStringOfSpaces() and getStringOfStars()
+ *
+ * Dispenser 2:
+ *
+ *
+ * Bloater 1:
+ *
+ *
+ * Bloater 2:
+ *
+ *
+ * OO Abuser 1:
+ *
+ */
+
+
 public class DiamondExercises {
     public static void main(String[] args) {
         drawAnIsoscelesTriangle(3);
@@ -7,14 +26,14 @@ public class DiamondExercises {
         drawADiamondWithYourName(6);
     }
 
-    static String space(int spaceCount){
+    static String getStringOfSpaces(int spaceCount){
         String spaces="";
         for(int i= 0; i<spaceCount; i++)
             spaces += " ";
 
         return spaces;
     }
-    static String star(int startCount){
+    static String getStringOfStars(int startCount){
         String stars="";
         for(int i =0;i<startCount;i++)
             stars+="*";
@@ -30,7 +49,7 @@ public class DiamondExercises {
 //            *****
     private static void drawAnIsoscelesTriangle(int n) {
         for(int i = 1; i<=n; i++){
-            System.out.println(space(n-i) + star((2*i)-1) + space(n-i));
+            System.out.println(getStringOfSpaces(n-i) + getStringOfStars((2*i)-1) + getStringOfSpaces(n-i));
         }
 
     }
@@ -44,11 +63,11 @@ public class DiamondExercises {
 //              *
     private static void drawADiamond(int n) {
         for(int i = 1; i<=n; i++){
-            System.out.println(space(n-i)+star((2*i)-1)+space(n-i));
+            System.out.println(getStringOfSpaces(n-i)+ getStringOfStars((2*i)-1)+ getStringOfSpaces(n-i));
         }
 
         for(int i = n-1; i>0;i--){
-            System.out.println(space(n-i)+star((2*i)-1)+space(n-i));
+            System.out.println(getStringOfSpaces(n-i)+ getStringOfStars((2*i)-1)+ getStringOfSpaces(n-i));
         }
     }
 
@@ -62,11 +81,11 @@ public class DiamondExercises {
 //             *
     private static void drawADiamondWithYourName(int n) {
         for(int i=1; i<=n-1; i++){
-            System.out.println(space(n-i)+star((2*i)-1)+space(n-i));
+            System.out.println(getStringOfSpaces(n-i)+ getStringOfStars((2*i)-1)+ getStringOfSpaces(n-i));
         }
         System.out.println("Goodness");
         for(int i=n-1; i>0; i--){
-            System.out.println(space(n-i)+star((2*i)-1)+space(n-i));
+            System.out.println(getStringOfSpaces(n-i)+ getStringOfStars((2*i)-1)+ getStringOfSpaces(n-i));
         }
     }
 }
