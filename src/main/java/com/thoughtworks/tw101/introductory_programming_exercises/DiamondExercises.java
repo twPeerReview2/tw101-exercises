@@ -15,7 +15,8 @@ package com.thoughtworks.tw101.introductory_programming_exercises;
  *  and printing rows of spaces and stars.
  *
  * Bloater 2:
- *
+ *  The methods drawADiamond() and drawADiamondWithYourName() could be shorter by reusing the
+ *  drawAnIsoscelesTriangle() method.
  *
  * OO Abuser 1:
  *
@@ -51,11 +52,7 @@ public class DiamondExercises {
 //             ***
 //              *
     private static void drawADiamond(int n) {
-        for(int i = 1; i<=n; i++){
-            Row row = new Row(n, i);
-            row.printRow();
-        }
-
+        drawAnIsoscelesTriangle(n);
         for(int i = n-1; i>0;i--){
             Row row = new Row(n, i);
             row.printRow();
@@ -71,10 +68,7 @@ public class DiamondExercises {
 //            ***
 //             *
     private static void drawADiamondWithYourName(int n) {
-        for(int i=1; i<=n-1; i++){
-            Row row = new Row(n, i);
-            row.printRow();
-        }
+        drawAnIsoscelesTriangle(n);
         System.out.println("Goodness");
         for(int i=n-1; i>0; i--){
             Row row = new Row(n, i);
