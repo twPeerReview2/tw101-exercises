@@ -6,8 +6,8 @@ package com.thoughtworks.tw101.introductory_programming_exercises;
  *  Refactored by renaming getStringOfSpaces() and getStringOfStars()
  *
  * Dispenser 2:
- *  Dead code - eliminated calls to getStringOfSpaces() that added spaces after printing
- *  stars for a row. The output looks exactly the same without the extra spaces.
+ *  Duplicate code - extracted a line used multiple times within for loops to print a row of spaces
+ *  and stars. New method printRow().
  *
  * Bloater 1:
  *
@@ -50,12 +50,16 @@ public class DiamondExercises {
 //            *****
     private static void drawAnIsoscelesTriangle(int n) {
         for(int i = 1; i<=n; i++){
-            System.out.println(getStringOfSpaces(n-i) + getStringOfStars((2*i)-1));
+            printRow(n, i);
         }
 
     }
 
-//    Diamond
+    private static void printRow(int n, int i) {
+        System.out.println(getStringOfSpaces(n-i) + getStringOfStars((2*i)-1));
+    }
+
+    //    Diamond
 //    Given a number n, print a centered diamond. Example for n=3:
 //              *
 //             ***
@@ -64,11 +68,11 @@ public class DiamondExercises {
 //              *
     private static void drawADiamond(int n) {
         for(int i = 1; i<=n; i++){
-            System.out.println(getStringOfSpaces(n-i)+ getStringOfStars((2*i)-1));
+            printRow(n, i);
         }
 
         for(int i = n-1; i>0;i--){
-            System.out.println(getStringOfSpaces(n-i)+ getStringOfStars((2*i)-1));
+            printRow(n, i);
         }
     }
 
@@ -82,11 +86,11 @@ public class DiamondExercises {
 //             *
     private static void drawADiamondWithYourName(int n) {
         for(int i=1; i<=n-1; i++){
-            System.out.println(getStringOfSpaces(n-i)+ getStringOfStars((2*i)-1));
+            printRow(n, i);
         }
         System.out.println("Goodness");
         for(int i=n-1; i>0; i--){
-            System.out.println(getStringOfSpaces(n-i)+ getStringOfStars((2*i)-1));
+            printRow(n, i);
         }
     }
 }
