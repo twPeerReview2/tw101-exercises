@@ -10,7 +10,9 @@ package com.thoughtworks.tw101.introductory_programming_exercises;
  *  and stars. New method printRow().
  *
  * Bloater 1:
- *
+ *  The DiamondExercises class got a bit long.
+ *  Refactored by creating a new class Row that holds the methods for storing
+ *  and printing rows of spaces and stars.
  *
  * Bloater 2:
  *
@@ -27,21 +29,6 @@ public class DiamondExercises {
         drawADiamondWithYourName(6);
     }
 
-    static String getStringOfSpaces(int spaceCount){
-        String spaces="";
-        for(int i= 0; i<spaceCount; i++)
-            spaces += " ";
-
-        return spaces;
-    }
-    static String getStringOfStars(int startCount){
-        String stars="";
-        for(int i =0;i<startCount;i++)
-            stars+="*";
-
-        return stars;
-    }
-
 
     //    Isosceles Triangle
 //    Given a number n, print a centered triangle. Example for n=3:
@@ -50,13 +37,10 @@ public class DiamondExercises {
 //            *****
     private static void drawAnIsoscelesTriangle(int n) {
         for(int i = 1; i<=n; i++){
-            printRow(n, i);
+            Row row = new Row(n, i);
+            row.printRow();
         }
 
-    }
-
-    private static void printRow(int n, int i) {
-        System.out.println(getStringOfSpaces(n-i) + getStringOfStars((2*i)-1));
     }
 
     //    Diamond
@@ -68,11 +52,13 @@ public class DiamondExercises {
 //              *
     private static void drawADiamond(int n) {
         for(int i = 1; i<=n; i++){
-            printRow(n, i);
+            Row row = new Row(n, i);
+            row.printRow();
         }
 
         for(int i = n-1; i>0;i--){
-            printRow(n, i);
+            Row row = new Row(n, i);
+            row.printRow();
         }
     }
 
@@ -86,11 +72,13 @@ public class DiamondExercises {
 //             *
     private static void drawADiamondWithYourName(int n) {
         for(int i=1; i<=n-1; i++){
-            printRow(n, i);
+            Row row = new Row(n, i);
+            row.printRow();
         }
         System.out.println("Goodness");
         for(int i=n-1; i>0; i--){
-            printRow(n, i);
+            Row row = new Row(n, i);
+            row.printRow();
         }
     }
 }
