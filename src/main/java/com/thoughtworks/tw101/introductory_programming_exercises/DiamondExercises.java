@@ -16,7 +16,8 @@ package com.thoughtworks.tw101.introductory_programming_exercises;
  *
  * Bloater 2:
  *  The methods drawADiamond() and drawADiamondWithYourName() could be shorter by reusing the
- *  drawAnIsoscelesTriangle() method.
+ *  drawAnIsoscelesTriangle() method and extracting a few lines of code that draw an isosceles
+ *  triangle upside down, for which I made a new method drawAnIsoscelesTriangleUpsideDown().
  *
  * OO Abuser 1:
  *
@@ -53,10 +54,7 @@ public class DiamondExercises {
 //              *
     private static void drawADiamond(int n) {
         drawAnIsoscelesTriangle(n);
-        for(int i = n-1; i>0;i--){
-            Row row = new Row(n, i);
-            row.printRow();
-        }
+        drawAnIsoscelesTriangleUpsideDown(n);
     }
 
 //    Diamond with Name
@@ -70,6 +68,10 @@ public class DiamondExercises {
     private static void drawADiamondWithYourName(int n) {
         drawAnIsoscelesTriangle(n);
         System.out.println("Goodness");
+        drawAnIsoscelesTriangleUpsideDown(n);
+    }
+
+    private static void drawAnIsoscelesTriangleUpsideDown(int n) {
         for(int i=n-1; i>0; i--){
             Row row = new Row(n, i);
             row.printRow();
