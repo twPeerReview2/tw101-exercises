@@ -20,13 +20,16 @@ package com.thoughtworks.tw101.introductory_programming_exercises;
  *  triangle upside down, for which I made a new method drawAnIsoscelesTriangleUpsideDown().
  *
  * OO Abuser 1:
- *
+ *  The methods drawAnIsoscelesTriangle() and drawAnIsoscelesTriangleUpsideDown() were
+ *  essentially doing the same thing. The only difference was the parameters of the for
+ *  loop.
+ *  Refactored by combining the methods and adding the boolean parameter upsideDown.
  */
 
 
 public class DiamondExercises {
     public static void main(String[] args) {
-        drawAnIsoscelesTriangle(3);
+        drawAnIsoscelesTriangle(3, false);
         drawADiamond(8);
         drawADiamondWithYourName(6);
     }
@@ -37,12 +40,16 @@ public class DiamondExercises {
 //              *
 //             ***
 //            *****
-    private static void drawAnIsoscelesTriangle(int n) {
-        for(int i = 1; i<=n; i++){
-            Row row = new Row(n, i);
-            row.printRow();
+    private static void drawAnIsoscelesTriangle(int n, boolean upsideDown) {
+        if (upsideDown) {
+            for (int i = n - 1; i > 0; i--) {
+                new Row(n, i).printRow();
+            }
+        } else {
+            for (int i = 1; i <= n; i++) {
+                new Row(n, i).printRow();
+            }
         }
-
     }
 
     //    Diamond
@@ -53,8 +60,8 @@ public class DiamondExercises {
 //             ***
 //              *
     private static void drawADiamond(int n) {
-        drawAnIsoscelesTriangle(n);
-        drawAnIsoscelesTriangleUpsideDown(n);
+        drawAnIsoscelesTriangle(n, false);
+        drawAnIsoscelesTriangle(n, true);
     }
 
 //    Diamond with Name
@@ -66,15 +73,9 @@ public class DiamondExercises {
 //            ***
 //             *
     private static void drawADiamondWithYourName(int n) {
-        drawAnIsoscelesTriangle(n);
+        drawAnIsoscelesTriangle(n, false);
         System.out.println("Goodness");
-        drawAnIsoscelesTriangleUpsideDown(n);
+        drawAnIsoscelesTriangle(n, true);
     }
 
-    private static void drawAnIsoscelesTriangleUpsideDown(int n) {
-        for(int i=n-1; i>0; i--){
-            Row row = new Row(n, i);
-            row.printRow();
-        }
-    }
 }
